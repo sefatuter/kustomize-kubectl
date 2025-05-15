@@ -1,0 +1,12 @@
+resources:
+  - ../../base
+
+patches:
+  - target: { kind: Deployment, name: api }
+    patch: |
+      - op: replace
+        path: /spec/replicas
+        value: 4
+      - op: replace
+        path: /spec/template/spec/containers/0/image
+        value: my-api:v1.0

@@ -1,0 +1,9 @@
+resources:
+  - ../../base
+
+patches:
+  - target: { kind: Deployment, name: api }
+    patch: |
+      - op: replace
+        path: /spec/template/spec/containers/0/image
+        value: my-api:v-next
